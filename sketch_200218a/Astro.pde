@@ -12,6 +12,7 @@ class Astro{
     this.rotation=rotation;
     this.distance=distance;
     this.texture=loadImage(texture);
+    this.texture.resize(500,250);
     this.rotationX=rotationX;
     this.rotationV=0;
   }
@@ -42,11 +43,10 @@ class Astro{
     this.rotationV+=this.rotation;
   
     if(this.rotationV>=360){
-      this.rotationV-=360;
+      this.rotationV=0;
     }
     for(Astro sat:this.satelites){
       //println("pintando satelite");
-
       sat.printAstro();
     }
     popMatrix();
